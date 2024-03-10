@@ -8,15 +8,15 @@ import { Input } from "./components/Input";
 import Card from "./components/Card";
 
 export default function Home() {
-  const [theme, setTheme] = useState("retro");
+  const [theme, setTheme] = useState("light");
 
   const mainBackground =
     theme == "retro"
       ? "bg-retro-blue"
       : theme == "light"
-      ? "bg-clean-platinum"
+      ? "bg-platinum"
       : theme == "dark"
-      ? "bg-zinc-950"
+      ? "bg-black"
       : "bg-white";
 
   const themeRetro = [
@@ -32,39 +32,36 @@ export default function Home() {
   ];
 
   const themeLight = [
-    "border-clean-frenchGrey",
-    "bg-clean-antiFlashWhite",
-    "text-clean-night",
+    "border-frenchGrey",
+    "bg-antiFlashWhite",
+    "text-night",
     "border border-2",
     "text-lg font-semibold italic",
-    "rounded-lg",
+    "rounded-xl",
     "p-4",
     "w-full h-full",
-    "placeholder-clean-onyx",
-    "shadow-lg",
-    "hover:bg-clean-lightFrenchGrey",
+    "placeholder-onyx",
+    "shadow-sm",
+    "hover:bg-lightFrenchGrey",
   ];
 
   const themeDark = [
-    "border-clean-onyx",
-    "bg-black",
-    "text-clean-lightFrenchGrey",
+    "border-zinc-800",
+    "bg-zinc-950",
+    "text-lightFrenchGrey",
     "border border-2",
-    "text-lg font-semibold italic",
-    "rounded-lg",
+    "text-lg  italic",
+    "rounded-xl",
     "p-4",
     "w-full h-full",
-    "placeholder-clean-lightFrenchGrey",
+    "placeholder-lightFrenchGrey",
     "shadow-lg",
-    "hover:bg-zinc-950",
+    "hover:bg-zinc-900",
   ];
 
   const headerThemeRetro = ["text-retro-brown", "text-2xl italic font-bold"];
-  const headerThemeLight = ["text-clean-onyx", "text-2xl italic font-bold"];
-  const headerThemeDark = [
-    "text-clean-lightFrenchGrey",
-    "text-2xl italic font-bold",
-  ];
+  const headerThemeLight = ["text-onyx", "text-2xl italic font-bold"];
+  const headerThemeDark = ["text-lightFrenchGrey", "text-2xl italic font-bold"];
 
   const cardThemeRetro = [
     "bg-retro-green",
@@ -72,19 +69,18 @@ export default function Home() {
     "text-retro-brown",
   ];
   const cardThemeLight = [
-    "bg-clean-antiFlashWhite",
-    "border-clean-frenchGrey",
-    "shadow-2xl",
+    "bg-antiFlashWhite",
+    "border-frenchGrey",
+    "shadow-lg",
     "rounded-lg",
-    "text-clean-night",
+    "text-night",
   ];
 
   const cardThemeDark = [
-    "bg-black",
-    "border-clean-onyx",
-    "shadow-2xl",
+    "bg-zinc-950",
+    "border-zinc-800",
     "rounded-lg",
-    "text-clean-seaSalt",
+    "text-seaSalt",
   ];
 
   const headerTheme =

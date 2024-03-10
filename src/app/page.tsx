@@ -6,6 +6,13 @@ import SelectTheme from "./components/SelectTheme";
 import classNames from "classnames";
 import { Input } from "./components/Input";
 import Card from "./components/Card";
+import { Barlow } from "next/font/google";
+
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  style: ["normal", "italic"],
+});
 
 export default function Home() {
   const [theme, setTheme] = useState("light");
@@ -20,12 +27,13 @@ export default function Home() {
       : "bg-white";
 
   const themeRetro = [
+    barlow.className,
     "border-retro-brown",
     "bg-retro-yellow",
     "text-retro-brown",
     "border border-2",
     "text-xl italic font-bold",
-    "p-4",
+    "px-4",
     "rounded-2xl",
     "w-full h-full",
     "placeholder-retro-brown",
@@ -36,7 +44,7 @@ export default function Home() {
     "bg-antiFlashWhite",
     "text-night",
     "border border-2",
-    "text-lg font-semibold italic",
+    "text-md font-semibold ",
     "rounded-xl",
     "p-4",
     "w-full h-full",
@@ -50,7 +58,7 @@ export default function Home() {
     "bg-zinc-950",
     "text-lightFrenchGrey",
     "border border-2",
-    "text-lg  italic",
+    "text-md  font-semibold",
     "rounded-xl",
     "p-4",
     "w-full h-full",
@@ -59,9 +67,13 @@ export default function Home() {
     "hover:bg-zinc-900",
   ];
 
-  const headerThemeRetro = ["text-retro-brown", "text-2xl italic font-bold"];
-  const headerThemeLight = ["text-onyx", "text-2xl italic font-bold"];
-  const headerThemeDark = ["text-lightFrenchGrey", "text-2xl italic font-bold"];
+  const headerThemeRetro = [
+    barlow.className,
+    "text-retro-brown",
+    "text-2xl  italic font-bold",
+  ];
+  const headerThemeLight = ["text-onyx", "text-2xl  font-bold"];
+  const headerThemeDark = ["text-lightFrenchGrey", "text-2xl  font-bold"];
 
   const cardThemeRetro = [
     "bg-retro-green",
@@ -124,7 +136,7 @@ export default function Home() {
       <Input
         theme={inputTheme}
         showShadow={theme === "retro"}
-        placeholder="Input..."
+        placeholder="Input"
       />
       <Card
         className="h-96 w-96 relative"

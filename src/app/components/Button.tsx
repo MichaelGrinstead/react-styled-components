@@ -8,7 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = ({ theme, showShadow, text, ...props }: ButtonProps) => {
   return (
-    <div className="relative w-36 h-18">
+    <div className="relative w-32 h-14">
       {showShadow && (
         <div className="absolute bg-retro-brown top-1 left-1 w-full h-full rounded-2xl"></div>
       )}

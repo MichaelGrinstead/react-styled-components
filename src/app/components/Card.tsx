@@ -39,12 +39,12 @@ export default function Card({
         <Input
           theme={inputTheme}
           showShadow={selectedTheme === "retro"}
-          placeholder="Input..."
+          placeholder="Input"
         ></Input>
         <Input
           theme={inputTheme}
           showShadow={selectedTheme === "retro"}
-          placeholder="Input..."
+          placeholder="Input"
         ></Input>
         <div className="mt-6">
           <Button

@@ -1,29 +1,11 @@
-import { Dispatch, SetStateAction } from "react";
+import { useContext } from "react";
 import { Button } from "./Button";
 import classNames from "classnames";
 import { Input } from "./Input";
+import { ThemeContext } from "../context/ThemeContext";
 
-interface CardProps {
-  className?: string;
-  selectedTheme: string;
-  theme: string[];
-  headerTheme: string[];
-  buttonTheme: string[];
-  inputTheme: string[];
-  showShadow?: boolean;
-  showShadowButton?: boolean;
-}
-
-export default function Card({
-  className,
-  selectedTheme,
-  theme,
-  headerTheme,
-  buttonTheme,
-  inputTheme,
-  showShadow,
-  showShadowButton,
-}: CardProps) {
+export default function Card({ className }: { className: string }) {
+  const { cardTheme, headerTheme, showShadow } = useContext(ThemeContext);
   return (
     <div className={className}>
       {showShadow && (
@@ -32,26 +14,14 @@ export default function Card({
       <div
         className={classNames(
           "absolute flex flex-col justify-start items-center gap-6  bottom-1 right-1 w-full h-full border-2 p-6",
-          theme
+          cardTheme
         )}
       >
         <h3 className={classNames(headerTheme)}>Card</h3>
-        <Input
-          theme={inputTheme}
-          showShadow={selectedTheme === "retro"}
-          placeholder="Input"
-        ></Input>
-        <Input
-          theme={inputTheme}
-          showShadow={selectedTheme === "retro"}
-          placeholder="Input"
-        ></Input>
+        <Input placeholder="Input"></Input>
+        <Input placeholder="Input"></Input>
         <div className="mt-6">
-          <Button
-            theme={buttonTheme}
-            showShadow={showShadowButton}
-            text="Button"
-          />
+          <Button text="Button" />
         </div>
       </div>
     </div>

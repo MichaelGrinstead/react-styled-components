@@ -1,55 +1,41 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext, useState } from "react";
 import { Button } from "./Button";
 import classNames from "classnames";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { ThemeContext } from "../context/ThemeContext";
 
 interface SelectThemeProps {
-  className?: string;
-  theme: string[];
-  headerTheme: string[];
-  buttonTheme: string[];
-  showShadow?: boolean;
-  showShadowButton?: boolean;
   setTheme: Dispatch<SetStateAction<string>>;
 }
 
-export default function SelectTheme({
-  theme,
-  headerTheme,
-  buttonTheme,
-  showShadow,
-  showShadowButton,
-  setTheme,
-}: SelectThemeProps) {
+export default function SelectTheme({ setTheme }: SelectThemeProps) {
+  const { cardTheme, showShadow, headerTheme } = useContext(ThemeContext);
+  const [isThemesOpen, setIsThemesOpen] = useState(false);
+
   return (
-    <div className="absolute flex flex-col top-8 right-8 h-80 w-60">
+    <div className=" absolute flex flex-col top-6 right-10 w-40">
       {showShadow && (
-        <div className=" bg-retro-brown w-full h-full rounded-2xl border-2 border-retro-brown"></div>
+        <div className="absolute bg-retro-brown h-full w-full rounded-2xl border-2 top-2 left-2 border-retro-brown"></div>
       )}
       <div
         className={classNames(
-          "absolute flex flex-col justify-center items-center gap-4  bottom-1 right-1 w-full h-full border-2",
-          theme
+          "flex flex-col gap-2 text-center p-2 border-2 z-10",
+          cardTheme
         )}
       >
         <h3 className={classNames(headerTheme)}>Themes</h3>
-        <Button
-          theme={buttonTheme}
-          showShadow={showShadowButton}
-          text="Light"
-          onClick={() => setTheme("light")}
-        />
-        <Button
-          theme={buttonTheme}
-          showShadow={showShadowButton}
-          text="Dark"
-          onClick={() => setTheme("dark")}
-        />
-        <Button
-          theme={buttonTheme}
-          showShadow={showShadowButton}
-          text="Retro"
-          onClick={() => setTheme("retro")}
-        />
+        {isThemesOpen && (
+          <div className="flex flex-col justify-center items-center gap-4">
+            <Button text="Light" onClick={() => setTheme("light")} />
+            <Button text="Dark" onClick={() => setTheme("dark")} />
+            <Button text="Retro" onClick={() => setTheme("retro")} />
+          </div>
+        )}
+        <div>
+          <button onClick={() => setIsThemesOpen(!isThemesOpen)}>
+            {isThemesOpen ? <ChevronUp /> : <ChevronDown />}
+          </button>
+        </div>
       </div>
     </div>
   );

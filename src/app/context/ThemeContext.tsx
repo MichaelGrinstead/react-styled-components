@@ -9,6 +9,12 @@ import {
   cardThemeLight,
   cardThemeDark,
   cardThemeRetro,
+  navThemeDark,
+  navThemeLight,
+  navThemeRetro,
+  navHeaderThemeDark,
+  navHeaderThemeLight,
+  navHeaderThemeRetro,
 } from "../styles";
 
 interface ThemeContextProps {
@@ -20,6 +26,8 @@ interface ThemeContextProps {
   buttonTheme: string[];
   inputTheme: string[];
   cardTheme: string[];
+  navTheme: string[];
+  navHeaderTheme: string[];
 }
 
 interface ThemeProviderProps {
@@ -34,6 +42,8 @@ export const ThemeContext = createContext<ThemeContextProps>({
   buttonTheme: themeLight,
   inputTheme: themeLight,
   cardTheme: cardThemeLight,
+  navTheme: navThemeLight,
+  navHeaderTheme: navHeaderThemeLight,
 });
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
@@ -64,6 +74,19 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       : theme == "light"
       ? cardThemeLight
       : cardThemeDark;
+  const navTheme =
+    theme == "retro"
+      ? navThemeRetro
+      : theme == "light"
+      ? navThemeLight
+      : navThemeDark;
+
+  const navHeaderTheme =
+    theme == "retro"
+      ? navHeaderThemeRetro
+      : theme == "light"
+      ? navHeaderThemeLight
+      : navHeaderThemeDark;
 
   const showShadow = theme === "retro";
   return (
@@ -77,6 +100,8 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
         buttonTheme,
         inputTheme,
         cardTheme,
+        navTheme,
+        navHeaderTheme,
       }}
     >
       {children}

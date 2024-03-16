@@ -13,14 +13,14 @@ export default function Card({ className }: { className: string }) {
       )}
       <div
         className={classNames(
-          "absolute flex flex-col justify-start items-center gap-6  bottom-1 right-1 w-full h-full border-2 p-6",
+          "absolute flex flex-col justify-start items-center gap-6  w-full h-full border-2 p-6",
           cardTheme
         )}
       >
         <h3 className={classNames(headerTheme)}>Card</h3>
         <Input placeholder="Input"></Input>
         <Input placeholder="Input"></Input>
-        <div className="mt-6">
+        <div className="mt-2 md:mt-4">
           <Button text="Button" />
         </div>
       </div>

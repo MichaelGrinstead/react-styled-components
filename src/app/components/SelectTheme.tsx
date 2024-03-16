@@ -13,25 +13,25 @@ export default function SelectTheme({ setTheme }: SelectThemeProps) {
   const [isThemesOpen, setIsThemesOpen] = useState(false);
 
   return (
-    <div className=" absolute flex flex-col top-6 right-10 w-40">
+    <div className=" fixed  flex flex-col top-20 right-4 md:top-24 md:right-6 w-32 sm:w-36 md:w-40 z-10">
       {showShadow && (
-        <div className="absolute bg-retro-brown h-full w-full rounded-2xl border-2 top-2 left-2 border-retro-brown"></div>
+        <div className="absolute bg-retro-brown h-full w-full rounded-2xl border-2 top-1 left-1 border-retro-brown"></div>
       )}
       <div
         className={classNames(
-          "flex flex-col gap-2 text-center p-2 border-2 z-10",
+          "flex flex-col text-center p-2 border-2 z-10 md:gap-1",
           cardTheme
         )}
       >
         <h3 className={classNames(headerTheme)}>Themes</h3>
-        {isThemesOpen && (
-          <div className="flex flex-col justify-center items-center gap-4">
+        <div className={`theme-transition ${isThemesOpen ? "open" : ""}`}>
+          <div className="flex flex-col justify-center items-center gap-4 py-2">
             <Button text="Light" onClick={() => setTheme("light")} />
             <Button text="Dark" onClick={() => setTheme("dark")} />
             <Button text="Retro" onClick={() => setTheme("retro")} />
           </div>
-        )}
-        <div>
+        </div>
+        <div className="flex flex-col items-center justify-center">
           <button onClick={() => setIsThemesOpen(!isThemesOpen)}>
             {isThemesOpen ? <ChevronUp /> : <ChevronDown />}
           </button>

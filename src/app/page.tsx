@@ -15,15 +15,15 @@ export default function Home() {
     <main
       className={classNames(
         mainBackground,
-        "relative  min-h-screen min-w-screen flex flex-col items-center justify-start gap-24 pt-24"
+        "  min-h-screen min-w-screen flex flex-col items-center justify-start gap-24 pt-24"
       )}
     >
       <SelectTheme setTheme={setTheme} />
 
-      <div className="mt-40 flex flex-col items-center justify-center gap-4">
+      <div className="mt-8 flex flex-col items-center justify-center gap-10">
         <Button />
         <Input placeholder="Input" />
-        <Card className="h-60 w-40 relative" />
+        <Card className="h-[300px] w-[250px] md:h-[370px] md:w-[350px] relative" />
       </div>
     </main>
   );

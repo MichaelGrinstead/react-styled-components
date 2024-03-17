@@ -1,20 +1,25 @@
 import { createContext, useState, Dispatch, SetStateAction } from "react";
 import {
-  themeRetro,
   themeLight,
   themeDark,
-  headerThemeDark,
+  themeRetro,
+  themeNord,
   headerThemeLight,
+  headerThemeDark,
   headerThemeRetro,
+  headerThemeNord,
   cardThemeLight,
   cardThemeDark,
   cardThemeRetro,
-  navThemeDark,
+  cardThemeNord,
   navThemeLight,
+  navThemeDark,
   navThemeRetro,
-  navHeaderThemeDark,
+  navThemeNord,
   navHeaderThemeLight,
+  navHeaderThemeDark,
   navHeaderThemeRetro,
+  navHeaderThemeNord,
 } from "../styles";
 
 interface ThemeContextProps {
@@ -50,12 +55,14 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState("light");
 
   const mainBackground =
-    theme == "retro"
-      ? "bg-retro-blue"
-      : theme == "light"
+    theme == "light"
       ? "bg-platinum"
       : theme == "dark"
       ? "bg-black"
+      : theme == "retro"
+      ? "bg-retro-blue"
+      : theme == "nord"
+      ? "bg-nord-deepDark"
       : "bg-white";
 
   const headerTheme =
@@ -63,22 +70,40 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       ? headerThemeRetro
       : theme == "light"
       ? headerThemeLight
+      : theme == "nord"
+      ? headerThemeNord
       : headerThemeDark;
   const buttonTheme =
-    theme == "retro" ? themeRetro : theme == "light" ? themeLight : themeDark;
+    theme == "retro"
+      ? themeRetro
+      : theme == "light"
+      ? themeLight
+      : theme == "nord"
+      ? themeNord
+      : themeDark;
   const inputTheme =
-    theme == "retro" ? themeRetro : theme == "light" ? themeLight : themeDark;
+    theme == "retro"
+      ? themeRetro
+      : theme == "light"
+      ? themeLight
+      : theme == "nord"
+      ? themeNord
+      : themeDark;
   const cardTheme =
     theme == "retro"
       ? cardThemeRetro
       : theme == "light"
       ? cardThemeLight
+      : theme == "nord"
+      ? cardThemeNord
       : cardThemeDark;
   const navTheme =
     theme == "retro"
       ? navThemeRetro
       : theme == "light"
       ? navThemeLight
+      : theme == "nord"
+      ? navThemeNord
       : navThemeDark;
 
   const navHeaderTheme =
@@ -86,6 +111,8 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       ? navHeaderThemeRetro
       : theme == "light"
       ? navHeaderThemeLight
+      : theme == "nord"
+      ? navHeaderThemeNord
       : navHeaderThemeDark;
 
   const showShadow = theme === "retro";

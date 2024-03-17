@@ -29,6 +29,7 @@ export default function SelectTheme({ setTheme }: SelectThemeProps) {
             <Button text="Light" onClick={() => setTheme("light")} />
             <Button text="Dark" onClick={() => setTheme("dark")} />
             <Button text="Retro" onClick={() => setTheme("retro")} />
+            <Button text="Nord" onClick={() => setTheme("nord")} />
           </div>
         </div>
         <div className="flex flex-col items-center justify-center">
